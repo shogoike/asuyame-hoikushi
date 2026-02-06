@@ -10,7 +10,7 @@ import Company from './pages/Company';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/asuyame-hoikushi">
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow">
