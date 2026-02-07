@@ -47,9 +47,9 @@ const steps = [
   },
   {
     number: '03',
-    icon: CheckCircle2,
-    title: '退職完了',
-    description: 'あとはお任せください',
+    icon: Shield,
+    title: '退職代行スタート',
+    description: '園への連絡はすべてお任せ',
   },
 ];
 
