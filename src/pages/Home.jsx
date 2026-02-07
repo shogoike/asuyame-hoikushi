@@ -35,14 +35,14 @@ const reasons = [
 const steps = [
   {
     number: '01',
-    icon: MessageCircle,
-    title: 'LINEで無料相談',
+    icon: FileText,
+    title: 'LINEでお申込み',
     description: '24時間いつでもOK',
   },
   {
     number: '02',
-    icon: FileText,
-    title: 'ヒアリング・お申込み',
+    icon: MessageCircle,
+    title: 'ヒアリング',
     description: '状況を詳しくお聞きします',
   },
   {
