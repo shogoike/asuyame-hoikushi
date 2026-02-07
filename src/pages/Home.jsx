@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Shield, Clock, Banknote, MessageCircle, ChevronRight, ChevronLeft, ChevronDown, Phone, FileText, CheckCircle2, Star, Users, Award } from 'lucide-react';
+import { Shield, Clock, Banknote, MessageCircle, ChevronRight, ChevronLeft, ChevronDown, FileText, CheckCircle2, Star, Users, Award, Lock, RefreshCcw, Headphones, Heart, BadgeCheck } from 'lucide-react';
 import AdaptiveDisorderCheck from '../components/AdaptiveDisorderCheck';
 import useABTest from '../hooks/useABTest';
 import { trackEvent } from '../utils/analytics';
@@ -105,6 +105,78 @@ const faqs = [
     question: '料金以外に追加費用はかかりますか？',
     answer: '一切かかりません。表示価格のみで、追加料金は発生しません。万が一退職できなかった場合は全額返金いたします。',
   },
+];
+
+const guarantees = [
+  {
+    icon: RefreshCcw,
+    title: '全額返金保証',
+    description: '万が一退職できなかった場合、料金は全額お返しします',
+    color: 'text-emerald-500',
+    bgColor: 'bg-emerald-50',
+    borderColor: 'border-emerald-200',
+  },
+  {
+    icon: Banknote,
+    title: '追加料金なし',
+    description: '表示価格のみ。後から請求されることは一切ありません',
+    color: 'text-blue-500',
+    bgColor: 'bg-blue-50',
+    borderColor: 'border-blue-200',
+  },
+  {
+    icon: Lock,
+    title: '秘密厳守',
+    description: 'ご相談内容は厳重に管理。第三者に漏れることはありません',
+    color: 'text-purple-500',
+    bgColor: 'bg-purple-50',
+    borderColor: 'border-purple-200',
+  },
+  {
+    icon: Headphones,
+    title: '24時間対応',
+    description: '深夜・早朝でもLINEで相談OK。お返事は平均5分以内',
+    color: 'text-teal-500',
+    bgColor: 'bg-teal-50',
+    borderColor: 'border-teal-200',
+  },
+];
+
+const staffMembers = [
+  {
+    name: '田中 美咲',
+    role: '相談員リーダー',
+    career: '元保育士（10年勤務）',
+    certification: '保育士資格・社会福祉士',
+    message: '保育の現場で感じる辛さ、私もよくわかります。一緒に解決策を見つけましょう。',
+    initial: '田',
+    color: 'bg-pink-100 text-pink-600',
+  },
+  {
+    name: '佐藤 健太',
+    role: '法務担当',
+    career: '社会保険労務士',
+    certification: '特定社労士・行政書士',
+    message: '法律の専門家として、あなたの権利を守ります。有給消化や退職金もお任せください。',
+    initial: '佐',
+    color: 'bg-blue-100 text-blue-600',
+  },
+  {
+    name: '山田 あゆみ',
+    role: '相談員',
+    career: '元幼稚園教諭（7年勤務）',
+    certification: '幼稚園教諭一種・保育士資格',
+    message: '「辞めたい」と思った時が相談のタイミング。まずはお話聞かせてください。',
+    initial: '山',
+    color: 'bg-green-100 text-green-600',
+  },
+];
+
+const lineMessages = [
+  { type: 'user', text: 'はじめまして。退職を考えているのですが...' },
+  { type: 'staff', text: 'ご相談ありがとうございます。まずは状況をお聞かせください。どのようなことでお悩みですか？' },
+  { type: 'user', text: '園長との関係がうまくいかなくて、毎日つらいです。でも人手不足で言い出せなくて...' },
+  { type: 'staff', text: 'おつらい状況ですね。人手不足はあなたの責任ではありません。法律上、退職は労働者の権利です。私たちがすべて代わりに対応しますので、ご安心ください。' },
 ];
 
 // FAQアコーディオンコンポーネント
@@ -227,6 +299,52 @@ const ReviewSlider = ({ reviews }) => {
   );
 };
 
+// LINE風メッセージコンポーネント
+const LineChatPreview = ({ messages }) => {
+  return (
+    <div className="bg-[#7494C0] rounded-2xl p-4 max-w-md mx-auto shadow-xl">
+      {/* ヘッダー */}
+      <div className="flex items-center gap-3 pb-3 border-b border-white/20 mb-4">
+        <div className="w-10 h-10 bg-[#06C755] rounded-full flex items-center justify-center">
+          <MessageCircle size={20} className="text-white" fill="white" />
+        </div>
+        <div>
+          <p className="text-white font-bold text-sm">アスヤメ相談窓口</p>
+          <p className="text-white/70 text-xs">24時間対応</p>
+        </div>
+      </div>
+
+      {/* メッセージ */}
+      <div className="space-y-3">
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
+          >
+            <div
+              className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
+                msg.type === 'user'
+                  ? 'bg-[#06C755] text-white rounded-br-md'
+                  : 'bg-white text-gray-800 rounded-bl-md'
+              }`}
+            >
+              {msg.text}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* 入力欄風 */}
+      <div className="mt-4 bg-white rounded-full px-4 py-2.5 flex items-center gap-2">
+        <span className="text-gray-400 text-sm flex-1">メッセージを入力...</span>
+        <div className="w-8 h-8 bg-[#06C755] rounded-full flex items-center justify-center">
+          <ChevronRight size={16} className="text-white" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Home = () => {
   const variant = useABTest();
   const [openFAQ, setOpenFAQ] = useState(null);
@@ -289,7 +407,7 @@ const Home = () => {
                 <span className="text-gray-800 font-bold text-sm">相談実績 1,000件+</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/95 rounded-full shadow-md">
-                <CheckCircle2 size={18} className="text-green-500" />
+                <CheckCircle2 size={18} className="text-emerald-500" />
                 <span className="text-gray-800 font-bold text-sm">退職成功率 100%</span>
               </div>
             </div>
@@ -307,6 +425,38 @@ const Home = () => {
           {/* Stress Check - inside hero */}
           <div className="max-w-2xl mx-auto">
             <AdaptiveDisorderCheck variantId={variant.id} />
+          </div>
+        </div>
+      </section>
+
+      {/* 安心保証セクション */}
+      <section className="py-12 md:py-16 bg-gradient-to-b from-slate-50 to-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-10">
+            <span className="inline-block px-4 py-1.5 bg-emerald-500 text-white text-sm font-bold rounded-full mb-3">
+              安心の4つの保証
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+              はじめての方でも安心してご利用いただけます
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {guarantees.map((item, index) => {
+              const IconComponent = item.icon;
+              return (
+                <div
+                  key={index}
+                  className={`${item.bgColor} ${item.borderColor} border-2 rounded-2xl p-5 text-center hover:shadow-lg transition-shadow duration-300`}
+                >
+                  <div className={`w-14 h-14 ${item.bgColor} rounded-full flex items-center justify-center mx-auto mb-3 border-2 ${item.borderColor}`}>
+                    <IconComponent size={28} className={item.color} />
+                  </div>
+                  <h3 className="font-bold text-gray-800 mb-2">{item.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -349,6 +499,102 @@ const Home = () => {
                 </React.Fragment>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* LINE相談イメージセクション */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <span className="inline-block px-3 py-1 bg-[#06C755]/10 text-[#06C755] text-sm font-bold rounded-full mb-4">
+                LINEで相談
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+                こんな風にやり取りします
+              </h2>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                LINEで気軽にご相談いただけます。「まだ決めていないけど話を聞いてほしい」という方も大歓迎。
+                まずはお気持ちをお聞かせください。
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 size={20} className="text-emerald-500 flex-shrink-0" />
+                  <span className="text-gray-700">相談だけでもOK、無理な勧誘は一切なし</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 size={20} className="text-emerald-500 flex-shrink-0" />
+                  <span className="text-gray-700">平均5分以内に返信</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 size={20} className="text-emerald-500 flex-shrink-0" />
+                  <span className="text-gray-700">24時間いつでも受付</span>
+                </div>
+              </div>
+              <a
+                href="https://lin.ee/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => handleLineClick('line_preview_section')}
+                className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-[#06C755] text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+              >
+                <MessageCircle size={20} fill="white" />
+                <span>LINEで相談してみる</span>
+              </a>
+            </div>
+            <div>
+              <LineChatPreview messages={lineMessages} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* スタッフ紹介セクション */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="inline-block px-3 py-1 bg-blue-100 text-blue-600 text-sm font-bold rounded-full mb-3">
+              対応スタッフ
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
+              私たちが最後までサポートします
+            </h2>
+            <p className="text-gray-600">
+              保育現場経験者と法律の専門家がチームであなたをサポート
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {staffMembers.map((staff, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className={`w-16 h-16 ${staff.color} rounded-full flex items-center justify-center text-2xl font-bold`}>
+                    {staff.initial}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-800">{staff.name}</h3>
+                    <p className="text-orange-500 text-sm font-medium">{staff.role}</p>
+                  </div>
+                </div>
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center gap-2">
+                    <Heart size={14} className="text-pink-400" />
+                    <span className="text-gray-600 text-sm">{staff.career}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <BadgeCheck size={14} className="text-blue-400" />
+                    <span className="text-gray-600 text-sm">{staff.certification}</span>
+                  </div>
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed bg-gray-50 rounded-xl p-3">
+                  「{staff.message}」
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
