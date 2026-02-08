@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import FloatingLineButton from './components/FloatingLineButton';
 import Home from './pages/Home';
 import Guide from './pages/Guide';
+import Pricing from './pages/Pricing';
 import Community from './pages/Community';
 import Company from './pages/Company';
 
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/guide" element={<Guide />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="/community" element={<Community />} />
             <Route path="/company" element={<Company />} />
           </Routes>

@@ -10,6 +10,7 @@ const Navbar = () => {
   const navLinks = [
     { path: '/', label: 'ホーム' },
     { path: '/guide', label: '退職ガイド' },
+    { path: '/pricing', label: '料金' },
     { path: '/community', label: 'みんなの声' },
     { path: '/company', label: '会社概要' },
   ];
