@@ -160,94 +160,64 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* Interview Section - なぜ保育士専門なのか */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-4">
+      {/* Interview Section - 引用ブロック型 */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-red-100 text-red-600 text-sm font-bold rounded-full mb-3">
-              <AlertTriangle size={14} className="inline mr-1" />
-              失敗談から学ぶ
+            <span className="inline-block px-4 py-1.5 bg-orange-100 text-orange-600 text-sm font-bold rounded-full mb-3">
+              体験談
             </span>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
-              なぜ「保育士専門」を選ぶべきなのか
+              他社で失敗した方が<br className="md:hidden" />アスヤメを選んだ理由
             </h2>
-            <p className="text-gray-600 max-w-xl mx-auto">
-              一般的な退職代行では対応できなかった方々が、<br className="hidden md:inline" />
-              アスヤメで解決できた理由
-            </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-8">
             {interviews.map((interview, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-r from-gray-50 to-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                className="relative bg-white rounded-3xl shadow-lg p-8 md:p-10 border border-gray-100"
               >
-                {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between px-6 py-4 bg-gray-50 border-b border-gray-200">
-                  <div className="flex items-center gap-3 mb-2 md:mb-0">
-                    <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
-                      <Users size={20} className="text-orange-500" />
+                {/* 大きな引用符 */}
+                <div className="absolute -top-4 left-8 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-white text-3xl font-serif leading-none">"</span>
+                </div>
+
+                {/* メインの声 */}
+                <div className="mt-4 mb-6">
+                  <p className="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
+                    {interview.solution}
+                  </p>
+                </div>
+
+                {/* Before（小さく表示） */}
+                <div className="bg-gray-50 rounded-xl p-4 mb-6 border-l-4 border-gray-300">
+                  <p className="text-sm text-gray-500 mb-1">
+                    <span className="font-bold text-gray-600">{interview.beforeService}</span>を利用した時は...
+                  </p>
+                  <p className="text-gray-600 text-sm">
+                    {interview.problem}
+                  </p>
+                </div>
+
+                {/* プロフィール */}
+                <div className="flex items-center justify-between flex-wrap gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-400 rounded-full flex items-center justify-center text-white font-bold">
+                      {interview.name.charAt(0)}
                     </div>
                     <div>
                       <p className="font-bold text-gray-800">{interview.name}（{interview.age}）</p>
                       <p className="text-sm text-gray-500">{interview.role}</p>
                     </div>
                   </div>
-                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full w-fit">
-                    <Heart size={12} fill="white" />
+                  <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-orange-50 text-orange-600 text-sm font-bold rounded-full border border-orange-200">
+                    <CheckCircle2 size={16} />
                     {interview.highlight}
                   </span>
                 </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {/* Before - Problem */}
-                    <div className="bg-red-50 rounded-xl p-5 border border-red-100">
-                      <div className="flex items-center gap-2 mb-3">
-                        <X size={18} className="text-red-500" />
-                        <span className="text-sm font-bold text-red-600">
-                          以前利用：{interview.beforeService}
-                        </span>
-                      </div>
-                      <div className="flex gap-3">
-                        <Quote size={20} className="text-red-300 flex-shrink-0 mt-1" />
-                        <p className="text-gray-700 text-sm leading-relaxed">
-                          {interview.problem}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* After - Solution */}
-                    <div className="bg-emerald-50 rounded-xl p-5 border border-emerald-100">
-                      <div className="flex items-center gap-2 mb-3">
-                        <CheckCircle2 size={18} className="text-emerald-500" />
-                        <span className="text-sm font-bold text-emerald-600">
-                          アスヤメで解決
-                        </span>
-                      </div>
-                      <div className="flex gap-3">
-                        <Quote size={20} className="text-emerald-300 flex-shrink-0 mt-1" />
-                        <p className="text-gray-700 text-sm leading-relaxed">
-                          {interview.solution}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             ))}
-          </div>
-
-          {/* Summary */}
-          <div className="mt-10 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl p-6 md:p-8 text-white text-center">
-            <p className="text-lg md:text-xl font-bold mb-2">
-              保育士の退職には、保育士専門のサポートが必要です
-            </p>
-            <p className="text-white/80 text-sm">
-              担任制度・年度途中退職・引き継ぎ...一般的な代行会社には理解できない壁があります。
-            </p>
           </div>
         </div>
       </section>
