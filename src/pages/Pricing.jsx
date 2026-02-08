@@ -1,6 +1,36 @@
 import React from 'react';
-import { MessageCircle, ChevronRight, CheckCircle2, X, Shield, Clock, Headphones, RefreshCcw, Scale, FileText, Users, CreditCard, Banknote, Sparkles } from 'lucide-react';
+import { MessageCircle, ChevronRight, CheckCircle2, X, Shield, Clock, Headphones, RefreshCcw, Scale, FileText, Users, CreditCard, Banknote, Sparkles, Quote, AlertTriangle, Heart } from 'lucide-react';
 import { trackEvent } from '../utils/analytics';
+
+const interviews = [
+  {
+    name: 'K.Mさん',
+    age: '28歳',
+    role: '認可保育園・正社員',
+    beforeService: '大手退職代行A社',
+    problem: '「担任を持っているなら年度末まで待て」と園に言われて、代行会社も対応できず...',
+    solution: 'アスヤメは保育業界の慣習を理解していて、法的根拠を示しながら交渉してくれました。年度途中でも問題なく退職できました。',
+    highlight: '保育業界の慣習を熟知',
+  },
+  {
+    name: 'S.Aさん',
+    age: '31歳',
+    role: '小規模保育園・主任',
+    beforeService: '格安退職代行B社',
+    problem: '園長が「直接話さないと認めない」と言い張り、代行会社は「これ以上は対応できない」と...',
+    solution: '弁護士監修のもと、書面での正式な通知を行い、出勤せずに退職完了。有給も全部消化できました。',
+    highlight: '弁護士監修で法的にも安心',
+  },
+  {
+    name: 'Y.Tさん',
+    age: '25歳',
+    role: '企業主導型保育園',
+    beforeService: '一般的な退職代行C社',
+    problem: '保育士特有の引き継ぎ（児童票や行事計画）について全く理解がなく、園とトラブルに...',
+    solution: 'アスヤメは保育現場経験者がいるので、引き継ぎの進め方までアドバイスしてもらえました。円満に退職できました。',
+    highlight: '保育現場経験者が対応',
+  },
+];
 
 const plans = [
   {
@@ -130,8 +160,100 @@ const Pricing = () => {
         </div>
       </section>
 
+      {/* Interview Section - なぜ保育士専門なのか */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 bg-red-100 text-red-600 text-sm font-bold rounded-full mb-3">
+              <AlertTriangle size={14} className="inline mr-1" />
+              失敗談から学ぶ
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
+              なぜ「保育士専門」を選ぶべきなのか
+            </h2>
+            <p className="text-gray-600 max-w-xl mx-auto">
+              一般的な退職代行では対応できなかった方々が、<br className="hidden md:inline" />
+              アスヤメで解決できた理由
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {interviews.map((interview, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-r from-gray-50 to-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              >
+                {/* Header */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between px-6 py-4 bg-gray-50 border-b border-gray-200">
+                  <div className="flex items-center gap-3 mb-2 md:mb-0">
+                    <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                      <Users size={20} className="text-orange-500" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-gray-800">{interview.name}（{interview.age}）</p>
+                      <p className="text-sm text-gray-500">{interview.role}</p>
+                    </div>
+                  </div>
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full w-fit">
+                    <Heart size={12} fill="white" />
+                    {interview.highlight}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {/* Before - Problem */}
+                    <div className="bg-red-50 rounded-xl p-5 border border-red-100">
+                      <div className="flex items-center gap-2 mb-3">
+                        <X size={18} className="text-red-500" />
+                        <span className="text-sm font-bold text-red-600">
+                          以前利用：{interview.beforeService}
+                        </span>
+                      </div>
+                      <div className="flex gap-3">
+                        <Quote size={20} className="text-red-300 flex-shrink-0 mt-1" />
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                          {interview.problem}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* After - Solution */}
+                    <div className="bg-emerald-50 rounded-xl p-5 border border-emerald-100">
+                      <div className="flex items-center gap-2 mb-3">
+                        <CheckCircle2 size={18} className="text-emerald-500" />
+                        <span className="text-sm font-bold text-emerald-600">
+                          アスヤメで解決
+                        </span>
+                      </div>
+                      <div className="flex gap-3">
+                        <Quote size={20} className="text-emerald-300 flex-shrink-0 mt-1" />
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                          {interview.solution}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Summary */}
+          <div className="mt-10 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl p-6 md:p-8 text-white text-center">
+            <p className="text-lg md:text-xl font-bold mb-2">
+              保育士の退職には、保育士専門のサポートが必要です
+            </p>
+            <p className="text-white/80 text-sm">
+              担任制度・年度途中退職・引き継ぎ...一般的な代行会社には理解できない壁があります。
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Cards */}
-      <section className="py-16 md:py-24 -mt-10">
+      <section className="py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-6">
             {plans.map((plan) => (
