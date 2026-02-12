@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Clock, Banknote, MessageCircle, ChevronRight, ChevronLeft, ChevronDown, CheckCircle2, Star, Users, Lock, RefreshCcw, Headphones, Heart, Scale, UserCheck, Building2, Sparkles, ArrowRight } from 'lucide-react';
+import logoImg from '../assets/images/logo.png';
 
 const reviews = [
   {
@@ -110,6 +111,17 @@ const HeroLanding = ({ heroImage }) => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
+      {/* Simple Logo Header */}
+      <header className="bg-white py-3 px-4 shadow-sm">
+        <div className="max-w-6xl mx-auto">
+          <img
+            src={logoImg}
+            alt="アスヤメ"
+            className="h-10 w-auto"
+          />
+        </div>
+      </header>
+
       {/* Hero Section - Full Width Image */}
       <section className="w-full">
         <img
