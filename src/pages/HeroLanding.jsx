@@ -55,22 +55,22 @@ const ReviewSlider = ({ reviews }) => {
   const prevReview = () => setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
 
   return (
-    <div className="relative h-full">
-      <div className="overflow-hidden h-full">
+    <div className="relative">
+      <div className="overflow-hidden">
         <div
-          className="flex transition-transform duration-500 ease-out h-full"
+          className="flex transition-transform duration-500 ease-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {reviews.map((review, index) => (
-            <div key={index} className="w-full flex-shrink-0 h-full">
-              <div className="h-full flex flex-col">
+            <div key={index} className="w-full flex-shrink-0">
+              <div>
                 <div className="flex items-center gap-1 mb-3">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
                   ))}
                 </div>
-                <p className="text-gray-700 text-sm leading-relaxed flex-grow">"{review.text}"</p>
-                <div className="flex items-center gap-3 mt-4 pt-4 border-t border-gray-100">
+                <p className="text-gray-700 text-sm leading-relaxed mb-4">"{review.text}"</p>
+                <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
                   <div className="w-10 h-10 bg-gradient-to-br from-orange-100 to-pink-100 rounded-full flex items-center justify-center">
                     <span className="text-orange-600 font-bold text-sm">{review.name[0]}</span>
                   </div>
