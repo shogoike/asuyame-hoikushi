@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Clock, Banknote, MessageCircle, ChevronRight, ChevronLeft, ChevronDown, CheckCircle2, Star, Users, Lock, RefreshCcw, Headphones, Heart, Scale, UserCheck, Building2, Sparkles, ArrowRight } from 'lucide-react';
 import logoImg from '../assets/images/logo.png';
+import yamenikusaImg from '../assets/images/yamenikusa.jpg';
 
 const reviews = [
   {
@@ -326,7 +327,7 @@ const HeroLanding = ({ heroImage }) => {
       {/* 保育士特有の悩みセクション */}
       <section className="py-12 md:py-20 bg-gradient-to-b from-orange-50 to-white">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="text-center mb-10">
+          <div className="text-center mb-8">
             <span className="inline-block px-4 py-1.5 bg-pink-100 text-pink-600 text-sm font-bold rounded-full mb-3">
               保育士だからこそ
             </span>
@@ -335,34 +336,13 @@ const HeroLanding = ({ heroImage }) => {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mb-4">
-                <Users size={24} className="text-pink-500" />
-              </div>
-              <h3 className="font-bold text-gray-800 mb-2">「同僚に迷惑がかかる」</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                人手不足の職場で辞めることへの罪悪感...でもあなたの人生も大切です。私たちが円滑な引き継ぎをサポートします。
-              </p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
-                <Building2 size={24} className="text-orange-500" />
-              </div>
-              <h3 className="font-bold text-gray-800 mb-2">「園長に言い出せない」</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                威圧的な園長や理事長への退職意思表示は私たちが代行。あなたが直接話す必要はありません。
-              </p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                <UserCheck size={24} className="text-purple-500" />
-              </div>
-              <h3 className="font-bold text-gray-800 mb-2">「年度途中でも大丈夫？」</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                法律上、退職は労働者の権利です。年度途中でも問題なく退職できます。弁護士監修で安心。
-              </p>
-            </div>
+          {/* やめにくさ解決イラスト */}
+          <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
+            <img
+              src={yamenikusaImg}
+              alt="保育士のやめにくさを解決"
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </section>
