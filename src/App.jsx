@@ -19,9 +19,10 @@ import Landing8 from './pages/landing/Landing8';
 import Landing9 from './pages/landing/Landing9';
 import Landing10 from './pages/landing/Landing10';
 import Landing11 from './pages/landing/Landing11';
+import LineConversion from './pages/LineConversion';
 
 // Landing pages don't show Navbar/Footer
-const landingPaths = ['/lp1', '/lp2', '/lp3', '/lp4', '/lp5', '/lp6', '/lp7', '/lp8', '/lp9', '/lp10', '/lp11'];
+const landingPaths = ['/lp1', '/lp2', '/lp3', '/lp4', '/lp5', '/lp6', '/lp7', '/lp8', '/lp9', '/lp10', '/lp11', '/line'];
 
 function AppContent() {
   const location = useLocation();
@@ -48,6 +49,7 @@ function AppContent() {
           <Route path="/lp9" element={<Landing9 />} />
           <Route path="/lp10" element={<Landing10 />} />
           <Route path="/lp11" element={<Landing11 />} />
+          <Route path="/line" element={<LineConversion />} />
         </Routes>
       </main>
       {!isLandingPage && <Footer />}

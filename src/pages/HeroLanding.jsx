@@ -356,9 +356,7 @@ const HeroLanding = ({ heroImage }) => {
             丁寧にサポートします。
           </p>
           <a
-            href="https://lin.ee/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/line"
             className="inline-flex items-center space-x-2 px-8 py-4 bg-[#06C755] text-white font-bold text-lg rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             <MessageCircle size={22} fill="white" />
