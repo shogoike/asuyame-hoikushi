@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     question: '有給消化や退職金はもらえますか？',
-    answer: '法律上の権利ですので、きちんと交渉いたします。',
+    answer: '法律上の権利ですので、きちんとお伝えいたします。',
   },
   {
     question: '料金以外に追加費用はかかりますか？',
@@ -187,7 +187,7 @@ const HeroLanding = ({ heroImage }) => {
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle2 size={16} className="text-white/80" />
-                    <span>園長・法人への交渉に強い</span>
+                    <span>園長・法人への連絡に強い</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle2 size={16} className="text-white/80" />
