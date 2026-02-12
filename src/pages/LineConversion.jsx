@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { MessageCircle, CheckCircle2, ChevronRight } from 'lucide-react';
 
 const LineConversion = () => {
-  const lineUrl = 'https://lin.ee/'; // 実際のLINE URLに変更してください
+  const lineUrl = 'https://lin.ee/OGTzYau';
 
   useEffect(() => {
     // コンバージョントラッキング
