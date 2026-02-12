@@ -194,33 +194,44 @@ const HeroLanding = ({ heroImage }) => {
               <p className="text-gray-600 text-sm leading-relaxed">最短で今日から出勤不要</p>
             </div>
 
-            {/* 料金カード */}
-            <div className="col-span-2 bg-white rounded-3xl p-5 md:p-6 border border-gray-100 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <Banknote size={24} className="text-purple-500" />
-                </div>
-                <div className="flex-grow">
-                  <h3 className="font-bold text-gray-800 mb-2">業界最安級・明朗会計</h3>
-                  <div className="flex flex-wrap gap-3">
-                    <div className="bg-gray-50 rounded-xl px-4 py-2">
-                      <span className="text-xs text-gray-500 block">正社員</span>
-                      <span className="text-xl font-bold text-gray-800">19,800<span className="text-sm">円</span></span>
-                    </div>
-                    <div className="bg-gray-50 rounded-xl px-4 py-2">
-                      <span className="text-xs text-gray-500 block">パート</span>
-                      <span className="text-xl font-bold text-gray-800">9,800<span className="text-sm">円</span></span>
-                    </div>
+            {/* 料金カード - chocoZAPスタイル */}
+            <div className="col-span-2 md:col-span-4 bg-gradient-to-r from-yellow-300 to-lime-400 rounded-3xl p-6 md:p-8 text-center">
+              <h3 className="text-gray-800 font-bold text-lg mb-4">業界最安級の料金</h3>
+
+              {/* 価格表示 */}
+              <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-6">
+                <div className="bg-white/90 rounded-2xl px-6 py-4 shadow-md">
+                  <span className="text-sm text-gray-600 block mb-1">正社員</span>
+                  <div className="flex items-baseline justify-center">
+                    <span className="text-4xl md:text-5xl font-black text-gray-800">19,800</span>
+                    <span className="text-xl font-bold text-gray-800 ml-1">円</span>
                   </div>
+                  <span className="text-xs text-gray-500">（税込）</span>
+                </div>
+                <div className="bg-white/90 rounded-2xl px-6 py-4 shadow-md">
+                  <span className="text-sm text-gray-600 block mb-1">パート・アルバイト</span>
+                  <div className="flex items-baseline justify-center">
+                    <span className="text-4xl md:text-5xl font-black text-gray-800">9,800</span>
+                    <span className="text-xl font-bold text-gray-800 ml-1">円</span>
+                  </div>
+                  <span className="text-xs text-gray-500">（税込）</span>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-2 mt-4">
-                <span className="inline-flex items-center gap-1 text-xs bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full">
-                  <RefreshCcw size={12} />全額返金保証
-                </span>
-                <span className="inline-flex items-center gap-1 text-xs bg-blue-50 text-blue-600 px-3 py-1 rounded-full">
-                  <Lock size={12} />追加料金なし
-                </span>
+
+              {/* バッジ */}
+              <div className="flex flex-wrap justify-center gap-3">
+                <div className="bg-white rounded-full px-4 py-2 shadow-sm flex items-center gap-2">
+                  <CheckCircle2 size={18} className="text-pink-500" />
+                  <span className="text-sm font-bold text-gray-700">追加料金なし!</span>
+                </div>
+                <div className="bg-white rounded-full px-4 py-2 shadow-sm flex items-center gap-2">
+                  <CheckCircle2 size={18} className="text-pink-500" />
+                  <span className="text-sm font-bold text-gray-700">全額返金保証!</span>
+                </div>
+                <div className="bg-white rounded-full px-4 py-2 shadow-sm flex items-center gap-2">
+                  <CheckCircle2 size={18} className="text-pink-500" />
+                  <span className="text-sm font-bold text-gray-700">後払いOK!</span>
+                </div>
               </div>
             </div>
 
