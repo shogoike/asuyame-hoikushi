@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Clock, Banknote, MessageCircle, ChevronRight, ChevronLeft, ChevronDown, CheckCircle2, Star, Users, Lock, RefreshCcw, Headphones, Heart, Scale, UserCheck, Building2, Sparkles, ArrowRight } from 'lucide-react';
 import logoImg from '../assets/images/logo.png';
 import yamenikusaImg from '../assets/images/yamenikusa.jpg';
+import pricingImg from '../assets/images/pricing.jpg';
 
 const reviews = [
   {
@@ -218,45 +219,13 @@ const HeroLanding = ({ heroImage }) => {
               <p className="text-gray-600 text-sm leading-relaxed">最短で今日から出勤不要</p>
             </div>
 
-            {/* 料金カード - chocoZAPスタイル */}
-            <div className="col-span-2 md:col-span-4 bg-gradient-to-r from-yellow-300 to-lime-400 rounded-3xl p-6 md:p-8 text-center">
-              <h3 className="text-gray-800 font-bold text-lg mb-4">業界最安級の料金</h3>
-
-              {/* 価格表示 */}
-              <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-6">
-                <div className="bg-white/90 rounded-2xl px-6 py-4 shadow-md">
-                  <span className="text-sm text-gray-600 block mb-1">正社員</span>
-                  <div className="flex items-baseline justify-center">
-                    <span className="text-4xl md:text-5xl font-black text-gray-800">19,800</span>
-                    <span className="text-xl font-bold text-gray-800 ml-1">円</span>
-                  </div>
-                  <span className="text-xs text-gray-500">（税込）</span>
-                </div>
-                <div className="bg-white/90 rounded-2xl px-6 py-4 shadow-md">
-                  <span className="text-sm text-gray-600 block mb-1">パート・アルバイト</span>
-                  <div className="flex items-baseline justify-center">
-                    <span className="text-4xl md:text-5xl font-black text-gray-800">9,800</span>
-                    <span className="text-xl font-bold text-gray-800 ml-1">円</span>
-                  </div>
-                  <span className="text-xs text-gray-500">（税込）</span>
-                </div>
-              </div>
-
-              {/* バッジ */}
-              <div className="flex flex-wrap justify-center gap-3">
-                <div className="bg-white rounded-full px-4 py-2 shadow-sm flex items-center gap-2">
-                  <CheckCircle2 size={18} className="text-pink-500" />
-                  <span className="text-sm font-bold text-gray-700">追加料金なし!</span>
-                </div>
-                <div className="bg-white rounded-full px-4 py-2 shadow-sm flex items-center gap-2">
-                  <CheckCircle2 size={18} className="text-pink-500" />
-                  <span className="text-sm font-bold text-gray-700">全額返金保証!</span>
-                </div>
-                <div className="bg-white rounded-full px-4 py-2 shadow-sm flex items-center gap-2">
-                  <CheckCircle2 size={18} className="text-pink-500" />
-                  <span className="text-sm font-bold text-gray-700">後払いOK!</span>
-                </div>
-              </div>
+            {/* 料金カード - 画像 */}
+            <div className="col-span-2 md:col-span-4 rounded-3xl overflow-hidden shadow-lg">
+              <img
+                src={pricingImg}
+                alt="保育士さん専用！退職代行 19,800円（税込）追加料金なし・全額返金保証・あと払いOK"
+                className="w-full h-auto"
+              />
             </div>
 
             {/* ステップ */}
