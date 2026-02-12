@@ -132,6 +132,29 @@ const HeroLanding = ({ heroImage }) => {
         />
       </section>
 
+      {/* 保育士特有の悩みセクション - ヒーロー直下 */}
+      <section className="py-8 md:py-12 bg-gradient-to-b from-orange-50 to-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-6">
+            <span className="inline-block px-4 py-1.5 bg-pink-100 text-pink-600 text-sm font-bold rounded-full mb-3">
+              保育士だからこそ
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+              こんなお悩みありませんか？
+            </h2>
+          </div>
+
+          {/* やめにくさ解決イラスト */}
+          <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
+            <img
+              src={yamenikusaImg}
+              alt="保育士のやめにくさを解決"
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Bento Grid Section */}
       <section className="py-12 md:py-20">
         <div className="max-w-6xl mx-auto px-4">
@@ -320,29 +343,6 @@ const HeroLanding = ({ heroImage }) => {
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* 保育士特有の悩みセクション */}
-      <section className="py-12 md:py-20 bg-gradient-to-b from-orange-50 to-white">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <span className="inline-block px-4 py-1.5 bg-pink-100 text-pink-600 text-sm font-bold rounded-full mb-3">
-              保育士だからこそ
-            </span>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
-              こんなお悩みありませんか？
-            </h2>
-          </div>
-
-          {/* やめにくさ解決イラスト */}
-          <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
-            <img
-              src={yamenikusaImg}
-              alt="保育士のやめにくさを解決"
-              className="w-full h-auto"
-            />
           </div>
         </div>
       </section>
