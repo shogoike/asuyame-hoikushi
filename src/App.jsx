@@ -58,7 +58,7 @@ function AppContent() {
 
 function App() {
   return (
-    <Router basename="/asuyame-hoikushi">
+    <Router>
       <AppContent />
     </Router>
   );
